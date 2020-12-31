@@ -43,20 +43,20 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
-              <!--
+            <!--
             <h4 class="text-white">About</h4>
             <p class="text-muted">Add some information about the album below, the author, or any other background
               context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off
               to some social networking sites or contact information.</p>
             -->
-            </div>
+          </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4s class="text-white">Contact</h4>
-            <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Follow on Twitter</a></li>
-              <li><a href="#" class="text-white">Like on Facebook</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
-            </ul>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
           </div>
         </div>
       </div>
@@ -164,7 +164,7 @@
       <p class="float-end mb-1">
         <a href="#">Back to top</a>
       </p>
-        <!--
+      <!--
       <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
       <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
           href="../getting-started/introduction/">getting started guide</a>.</p>
@@ -189,21 +189,37 @@
         "Lookup successful:\n\n"
         + JSON.stringify(location, undefined, 4)
       );
-      iso_code = location.country.iso_code
       ip_address = location.traits.ip_address
-      if (location.traits.is_anonymous == true
-        || location.traits.is_anonymous_proxy == true
-        || location.traits.is_anonymous_vpn == true
-        || location.traits.is_hosting_provider == true
-        || location.traits.is_public_proxy == true
-        || location.traits.is_residential_proxy == true
-        || location.traits.is_tor_exit_node == true) {
-        trait = "B"
-      } else {
-        trait = "G"
-      }
-      watermark = `${iso_code} - ${trait} - ${Date.now()}`
-      $(".watermark").text(watermark);
+      var settings = {
+        "url": `https://geoip.maxmind.com/geoip/v2.1/insights/${ip_address}`,
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+          "Authorization": "Basic NDcxMjgwOlNueFNJV2NnTTdpY3dNZE0=",
+          "Cookie": "__cfduid=d226aba6bb8da9c285a07f11fd54a09c61609344443",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST,GET,OPTIONS, PUT, DELETE",
+          "Access-Control-Allow-Headers": "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
+        },
+      };
+
+      $.ajax(settings).done(function (response) {
+        console.log("with api", response);
+        iso_code = response.country.iso_code
+        if (response.traits.is_anonymous == true
+          || response.traits.is_anonymous_proxy == true
+          || response.traits.is_anonymous_vpn == true
+          || response.traits.is_hosting_provider == true
+          || response.traits.is_public_proxy == true
+          || response.traits.is_residential_proxy == true
+          || response.traits.is_tor_exit_node == true) {
+          trait = "B"
+        } else {
+          trait = "G"
+        }
+        watermark = `${iso_code} - ${trait} - ${Date.now()}`
+        $(".watermark").text(watermark);
+      });
     };
 
     var onError = function (error) {
@@ -214,46 +230,6 @@
     };
 
     geoip2.city(onSuccess, onError);
-
-    var settings = {
-      "url": `https://geoip.maxmind.com/geoip/v2.1/insights/165.22.234.13`,
-      "method": "GET",
-      "timeout": 0,
-      "headers": {
-        "Authorization": "Basic NDcxMjgwOlNueFNJV2NnTTdpY3dNZE0=",
-        "Cookie": "__cfduid=d226aba6bb8da9c285a07f11fd54a09c61609344443",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST,GET,OPTIONS, PUT, DELETE",
-        "Access-Control-Allow-Headers": "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
-      },
-    };
-
-    $.ajax(settings).done(function (response) {
-      console.log("with api", response);
-    });
-
-    // $.ajax({
-    //   url: "https://geoip.maxmind.com/geoip/v2.1/insights/165.22.234.13",
-    //   type: 'GET',
-    //   dataType: 'jsonp',
-    //   cors: true,
-    //   contentType: 'application/json',
-    //   secure: true,
-    //   headers: {
-    //     "Authorization": "Basic NDcxMjgwOlNueFNJV2NnTTdpY3dNZE0=",
-    //     "Cookie": "__cfduid=d226aba6bb8da9c285a07f11fd54a09c61609344443",
-    //     'Access-Control-Allow-Origin': '*',
-    //     "Access-Control-Allow-Headers": "*"
-    //   },
-    //   beforeSend: function (xhr) {
-    //     xhr.setRequestHeader("Authorization", "Basic " + btoa(""));
-    //   },
-    //   success: function (response) {
-    //     console.log("with api", response);
-    //     // var organisation = data.organizations[0].name;
-    //     // $("#company").text(organisation);
-    //   }
-    // });
 
     $(document).ready(function () {
       $(".moveInside").appendTo($('.video'));
