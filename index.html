@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.79.0">
+  <title>Video Mock</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+
+  <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Add some information about the album below, the author, or any other background
+              context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off
+              to some social networking sites or contact information.</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Follow on Twitter</a></li>
+              <li><a href="#" class="text-white">Like on Facebook</a></li>
+              <li><a href="#" class="text-white">Email me</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
+            viewBox="0 0 24 24">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+          <strong>Album</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="py-5 text-center container">
+      <img src="banner.jpeg" alt="" srcset="" class="banner">
+      <!-- <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Album example</h1>
+          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
+            etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+          <p>
+            <a href="#" class="btn btn-primary my-2">Main call to action</a>
+            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+          </p>
+        </div>
+      </div> -->
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="video-wrapper">
+                <video id="my-video" class="video-js video" controls preload="auto" width="100%" height="240"
+                  poster="video-banner.png" data-setup="{}">
+                  <source src="movie.mp4" type="video/mp4" />
+                  <source src="mobie.webm" type="video/webm" />
+                  <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser.
+                  </p>
+                </video>
+                <div class="moveInside">
+                  <div class="watermark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="video-wrapper">
+                <video id="my-video" class="video-js video" controls preload="auto" width="100%" height="240"
+                  poster="video-banner2.jpeg" data-setup="{}">
+                  <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+                  <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser.
+                  </p>
+                </video>
+                <div class="moveInside">
+                  <div class="watermark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="video-wrapper">
+                <video id="my-video" class="video-js video" controls preload="auto" width="100%" height="240"
+                  poster="video-banner.png" data-setup="{}">
+                  <source src="movie.mp4" type="video/mp4" />
+                  <source src="mobie.webm" type="video/webm" />
+                  <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser.
+                  </p>
+                </video>
+                <div class="moveInside">
+                  <div class="watermark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+      <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
+          href="../getting-started/introduction/">getting started guide</a>.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+  <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+
+  <script type="text/javascript" src="https://geoip-js.com/js/apis/geoip2/v2.1/geoip2.js"></script>
+
+  <script type="text/javascript">
+    var ip_address = "";
+    var iso_code = "";
+    var watermark = "";
+    var trait = "";
+    var onSuccess = function (location) {
+      console.log(
+        "Lookup successful:\n\n"
+        + JSON.stringify(location, undefined, 4)
+      );
+      iso_code = location.country.iso_code
+      ip_address = location.traits.ip_address
+      if (location.traits.is_anonymous == true
+        || location.traits.is_anonymous_proxy == true
+        || location.traits.is_anonymous_vpn == true
+        || location.traits.is_hosting_provider == true
+        || location.traits.is_public_proxy == true
+        || location.traits.is_residential_proxy == true
+        || location.traits.is_tor_exit_node == true) {
+        trait = "B"
+      } else {
+        trait = "G"
+      }
+      watermark = `${iso_code} - ${trait} - ${Date.now()}`
+      $(".watermark").text(watermark);
+    };
+
+    var onError = function (error) {
+      console.log(
+        "Error:\n\n"
+        + JSON.stringify(error, undefined, 4)
+      );
+    };
+
+    geoip2.city(onSuccess, onError);
+
+    var settings = {
+      "url": `https://geoip.maxmind.com/geoip/v2.1/insights/165.22.234.13`,
+      "method": "GET",
+      "timeout": 0,
+      "headers": {
+        "Authorization": "Basic NDcxMjgwOlNueFNJV2NnTTdpY3dNZE0=",
+        "Cookie": "__cfduid=d226aba6bb8da9c285a07f11fd54a09c61609344443",
+        "Access-Control-Allow-Origin": "localhost",
+        "Access-Control-Allow-Methods": "POST,GET,OPTIONS, PUT, DELETE",
+        "Access-Control-Allow-Headers": "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
+      },
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log("with api", response);
+    });
+
+    // $.ajax({
+    //   url: "https://geoip.maxmind.com/geoip/v2.1/insights/165.22.234.13",
+    //   type: 'GET',
+    //   dataType: 'jsonp',
+    //   cors: true,
+    //   contentType: 'application/json',
+    //   secure: true,
+    //   headers: {
+    //     "Authorization": "Basic NDcxMjgwOlNueFNJV2NnTTdpY3dNZE0=",
+    //     "Cookie": "__cfduid=d226aba6bb8da9c285a07f11fd54a09c61609344443",
+    //     'Access-Control-Allow-Origin': '*',
+    //     "Access-Control-Allow-Headers": "*"
+    //   },
+    //   beforeSend: function (xhr) {
+    //     xhr.setRequestHeader("Authorization", "Basic " + btoa(""));
+    //   },
+    //   success: function (response) {
+    //     console.log("with api", response);
+    //     // var organisation = data.organizations[0].name;
+    //     // $("#company").text(organisation);
+    //   }
+    // });
+
+    $(document).ready(function () {
+      $(".moveInside").appendTo($('.video'));
+    });
+
+  </script>
+
+</body>
+
+</html>
